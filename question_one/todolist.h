@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <openssl/sha.h>
+#include <openssl/evp.h>
 #include <fcntl.h>
 #include <sys/types.h>
 #include <unistd.h>
