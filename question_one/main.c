@@ -1,6 +1,9 @@
 #include "todolist.h"
 
-
+/**
+ * tamper_task - changes a task description maliciously
+ * @task: pointer to task to tamper with
+ */
 void tamper_task(Task *task) {
     if (!task) return;
     printf("\nTampering with task ID %d...\n", task->task_id);
@@ -8,6 +11,10 @@ void tamper_task(Task *task) {
     task->description[STRING_MAX - 1] = '\0';
 }
 
+/**
+ * main - entry for CLI for users
+ * Return: 0
+ */
 int main() {
     tlist_t *todo_list = create_todo_list();
     int choice, task_id, status;

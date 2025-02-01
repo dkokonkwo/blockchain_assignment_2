@@ -29,12 +29,12 @@ typedef enum
  * @hash: task's hash
  * @next: pointer to next task in list
  */
-typedef struct Task {
+typedef struct Task_S {
     int task_id;
     char description[STRING_MAX];
     Status status;
     uint8_t hash[SHA256_DIGEST_LENGTH];
-    Task *next;
+    struct Task_S *next;
 } Task;
 
 /**
@@ -58,5 +58,7 @@ void print_all_tasks(tlist_t *list);
 int delete_task(tlist_t *list, int task_id);
 void free_todolist(tlist_t *list);
 int task_validity(Task *task);
+int calculate_hash(Task *task, uint8_t hash[SHA256_DIGEST_LENGTH]);
+Status int_to_status(int status);
 
 #endif /* TODOLIST_H */

@@ -166,7 +166,7 @@ int delete_task(tlist_t *list, int task_id) {
         free(ctask);
     }
     else {
-        while (ctask && ctask->next != task_id) {
+        while (ctask && ctask->next->task_id != task_id) {
             prev = ctask;
             ctask = ctask->next;
         }
