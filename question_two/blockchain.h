@@ -29,4 +29,14 @@ typedef struct Blockchain {
     int difficulty;
 } Blockchain;
 
+/* BLOCKCHAIN FUNCTIONS */
+void hash_to_hex(unsigned char *hash, char *output);
+int is_valid_hash(unsigned char *hash, int difficulty);
+void calculate_block_hash(block_t *block, unsigned int nonce, unsigned char *out_hash);
+void mine_block(block_t *block, int difficulty);
+block_t *create_block(int index, const char *transactions, unsigned char *prevHash, int difficulty);
+void add_block(Blockchain *chain, block_t *block);
+int validateBlockchain(Blockchain *blockchain);
+int adjust_difficulty(uint64_t prevTime, uint64_t currentTime, int currentDifficulty);
+
 #endif /* BLOCKCHAIN.H */

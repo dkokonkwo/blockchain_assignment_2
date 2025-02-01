@@ -73,7 +73,7 @@ void mine_block(block_t *block, int difficulty) {
  * @difficulty: PoW difficulty level
  * Return: pointer to created block else NULL
  */
-block_t *create_block(int index, char transactions[DATASIZE_MAX], unsigned char *prevHash, int difficulty) {
+block_t *create_block(int index, const char *transactions, unsigned char *prevHash, int difficulty) {
     block_t *block = malloc(sizeof(block_t));
     if (!block) {
         printf("Failed to allocate memory for block/\n");
@@ -126,7 +126,7 @@ int validateBlockchain(Blockchain *blockchain) {
 
     while (current)
     {
-        calculateHash(current, calculatedHash);
+        calculate_block_hash(current, 0, calculatedHash);
         if (memcmp(current->currHash, calculatedHash, SHA256_DIGEST_LENGTH) != 0 || memcmp(current->prevHash, tmpHash, SHA256_DIGEST_LENGTH) != 0) {
             return 0;
         }    

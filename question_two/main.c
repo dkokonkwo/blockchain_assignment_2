@@ -13,7 +13,7 @@ int main() {
     add_block(&blockchain, genesisBlock);
     memcpy(prevHash, genesisBlock->currHash, SHA256_DIGEST_LENGTH);
 
-    for (int i = 1; i <= 5; i++) {
+    for (int i = 1; i <= 2; i++) {
         printf("\n--- Mining Block %d ---\n", i);
         uint64_t startTime = (uint64_t)time(NULL);
         
@@ -31,7 +31,12 @@ int main() {
     }
 
     printf("\n--- Verifying Blockchain Integrity ---\n");
-    verify_blockchain(&blockchain);
+    if (validateBlockchain(&blockchain)) {
+        printf("Blockchain is valid.\n");
+    }
+    else {
+        printf("Blockchain is invalid.\n");
+    }
 
     return 0;
 }
