@@ -5,6 +5,7 @@
 2. Run the main executable file and follow the prompts to simulate the blockchain todolist. ✅
 
 **BACKGROUND**
+
 Develop a to-do list application in C that simulates storing, retrieving, and managing tasks as if they were stored on the Ethereum blockchain. Implement functions to add, delete, update, and list tasks while ensuring the immutability and integrity of the data by using cryptographic hashing (e.g., SHA-256) to mimic how data is secured on the blockchain. Demonstrate how tasks are managed in a way that simulates interaction with a blockchain-based system.
 
 Submission Requirements:
