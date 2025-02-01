@@ -15,9 +15,9 @@ Install necessary libraries for cryptographic functions, such as OpenSSL, for ha
 Data Structures:
 
 1. Define a struct for a Task that includes:
-- task_id: An integer that uniquely identifies the task.
-- description: A string containing the task description.
-- status: An enum or integer representing the task status ("Pending," "In Progress," "Completed").
+- `task_id`: An integer that uniquely identifies the task.
+- `description`: A string containing the task description.
+- `status`: An enum or integer representing the task status ("Pending," "In Progress," "Completed").
 - Use an array or a linked list to manage multiple Task structures.
 
 2. Hashing for Data Integrity:
