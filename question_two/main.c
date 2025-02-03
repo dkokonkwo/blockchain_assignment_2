@@ -25,6 +25,16 @@ int main() {
         
         add_block(&blockchain, newBlock);
         memcpy(prevHash, newBlock->currHash, SHA256_DIGEST_LENGTH);
+        printf("Time taken to mine block: %lu seconds\n", (endTime - startTime));
+
+        /* Printing block's hash */
+        printf("Block hash: ");
+        for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
+        {
+            printf("%02x", newBlock->currHash[i]);
+        }
+        printf("\n\n");
+
 
         blockchain.difficulty = adjust_difficulty(startTime, endTime, blockchain.difficulty);
         printf("New Difficulty Level: %d\n", blockchain.difficulty);

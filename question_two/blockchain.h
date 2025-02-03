@@ -20,6 +20,7 @@ typedef struct block_s {
     unsigned char prevHash[SHA256_DIGEST_LENGTH];
     unsigned char currHash[SHA256_DIGEST_LENGTH];
     struct block_s *next;
+    int nonce;
 } block_t;
 
 typedef struct Blockchain {

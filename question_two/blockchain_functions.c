@@ -56,6 +56,7 @@ void mine_block(block_t *block, int difficulty) {
     printf("Mining block %d at difficulty %d...\n", block->index, difficulty);
 
     do {
+        block->nonce = nonce;
         calculate_block_hash(block, nonce, hash);
         nonce++;
     } while (!is_valid_hash(hash, difficulty));
@@ -90,6 +91,7 @@ block_t *create_block(int index, const char *transactions, unsigned char *prevHa
         memset(block->prevHash, 0, SHA256_DIGEST_LENGTH);  // Genesis block creation
     memset(block->currHash, 0, SHA256_DIGEST_LENGTH);
     block->next = NULL;
+    block->nonce = 0;
 
     mine_block(block, difficulty);
     return block;
@@ -126,7 +128,7 @@ int validateBlockchain(Blockchain *blockchain) {
 
     while (current)
     {
-        calculate_block_hash(current, 0, calculatedHash);
+        calculate_block_hash(current, current->nonce, calculatedHash);
         if (memcmp(current->currHash, calculatedHash, SHA256_DIGEST_LENGTH) != 0 || memcmp(current->prevHash, tmpHash, SHA256_DIGEST_LENGTH) != 0) {
             return 0;
         }    
